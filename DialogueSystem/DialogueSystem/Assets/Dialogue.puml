@@ -1,20 +1,36 @@
 @startuml
+'Green is a struct'
 
 hide empty members
 
 class DialogueManager<<M, yellow>>{
     +ui : canvas 
+    +isRunning : bool
     -name : TextMeshPro
     -text : TextMeshPro
     -portrait : Image
+    +Event action<string> ChoiceMade
     +void StartDialogue(Dialogue dialogueToSet)
     +void StopDialogue()
+    -void ShowButton()
+    -void PressButton()
     -void NextDialoguePiece()
     -void Skip()
+    -void PlayLetterSound()
+    -void PlaySound()
+    -void PlayBackgroundSound()
+}
+
+Abstract DialogueEncounter{
+    +dialogues : list<Dialogue>
+    #void SendDialogue()
+    -Event action<> SomethingHappens
+    -void StartEvent()
 }
 
 class Dialogue<<S, red>>{
     +pieces : DialoguePiece[]
+    +choices : list<Choice>
     +mode : Mode
 }
 
@@ -38,9 +54,17 @@ class Mode<<S, red>>{
     +TypeOut
 }
 
+Class Choice<<S, green>>{
+    +choiceName : list<string>
+    +dialogue : Dialogue
+    
+}
+
 Dialogue "1" -- "n" DialoguePiece
 DialoguePiece - Actor
 Dialogue - Mode
-DialogueManager -* Dialogue
+DialogueManager -* DialogueEncounter
+DialogueEncounter -* Dialogue
+Dialogue -- Choice
 
 @enduml

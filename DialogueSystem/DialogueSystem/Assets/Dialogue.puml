@@ -1,0 +1,46 @@
+@startuml
+
+hide empty members
+
+class DialogueManager<<M, yellow>>{
+    +ui : canvas 
+    -name : TextMeshPro
+    -text : TextMeshPro
+    -portrait : Image
+    +void StartDialogue(Dialogue dialogueToSet)
+    +void StopDialogue()
+    -void NextDialoguePiece()
+    -void Skip()
+}
+
+class Dialogue<<S, red>>{
+    +pieces : DialoguePiece[]
+    +mode : Mode
+}
+
+class Actor<<S, red>>{
+    +name : string
+    +reaction : sprites[]
+}
+
+class DialoguePiece<<S, red>>{
+    +actor : Actor
+    +portrait : Sprite
+    +text : string
+    +soundForLetter : Sound
+    +sound : Sound
+    +backgroundSound : Sound
+    +speed : float
+}
+
+class Mode<<S, red>>{
+    +Instant
+    +TypeOut
+}
+
+Dialogue "1" -- "n" DialoguePiece
+DialoguePiece - Actor
+Dialogue - Mode
+DialogueManager -* Dialogue
+
+@enduml

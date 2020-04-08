@@ -36,12 +36,12 @@ class Dialogue<<S, red>>{
 
 class Actor<<S, red>>{
     +name : string
-    +reaction : sprites[]
+    +reaction : dictionary<Reaction,Sprite>
 }
 
 class DialoguePiece<<S, red>>{
     +actor : Actor
-    +portrait : Sprite
+    +reactions : Reaction
     +text : string
     +soundForLetter : Sound
     +sound : Sound
@@ -60,11 +60,20 @@ Class Choice<<S, green>>{
     
 }
 
+Class Reaction<<S, red>>{
+    Neutral
+    Happy
+    Sad    
+    Angry
+}
+
 Dialogue "1" -- "n" DialoguePiece
 DialoguePiece - Actor
 Dialogue - Mode
-DialogueManager -* DialogueEncounter
-DialogueEncounter -* Dialogue
+DialogueManager --* DialogueEncounter
+DialogueEncounter --* Dialogue
 Dialogue -- Choice
+DialoguePiece -- Reaction
+Actor -- Reaction
 
 @enduml

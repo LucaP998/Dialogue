@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544488dd80ecb9247b52ea65be254c98, type: 3}
+  m_Name: Pikachu
+  m_EditorClassIdentifier: 
+  actorName: Pikachu
+  reactions:
+  - reaction: 0
+    sprite: {fileID: 3360394008511720735, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+      type: 3}
+  - reaction: 1
+    sprite: {fileID: 650397754724243475, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3, type: 3}
+  - reaction: 2
+    sprite: {fileID: -5277936344961346494, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+      type: 3}
+  - reaction: 3
+    sprite: {fileID: 4707650434157474835, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+      type: 3}

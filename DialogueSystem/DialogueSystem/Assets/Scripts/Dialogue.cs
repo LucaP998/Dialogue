@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Dialogue", menuName = "Scriptables/Dialogue")]
 public class Dialogue : ScriptableObject
 {
-	public DialoguePiece[] dialoguePieces;
+	[TableList]
+	public List<DialoguePiece> dialoguePieces;
 
 	public enum Mode
 	{
@@ -16,6 +18,7 @@ public class Dialogue : ScriptableObject
 
 	public Mode mode=Mode.Instant;
 	
+	[Serializable]
 	public struct Choice
 	{
 		private string choiceName;

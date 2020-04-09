@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4f0120ab2c8deb45932b6a732199dc3, type: 3}
-  m_Name: DialoguePiece
+  m_Name: DialoguePiece 1
   m_EditorClassIdentifier: 
-  actor: {fileID: 11400000, guid: 5016b2bdaf5ebb144a1c01bae72eccce, type: 2}
-  reaction: 0
-  spriteReaction: {fileID: -573981516967879801, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+  actor: {fileID: 11400000, guid: 09c90dc121d3e18448e5c0cd83fefafb, type: 2}
+  reaction: 1
+  spriteReaction: {fileID: 650397754724243475, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
     type: 3}
-  dialogueText: ciao sono uno squirtle
+  dialogueText: Ciao squirtle!
   letterSound: {fileID: 0}
   sound: {fileID: 0}
   backgroundSound: {fileID: 0}

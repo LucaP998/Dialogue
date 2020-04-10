@@ -9,6 +9,8 @@ class DialogueManager<<M, yellow>>{
     -name : TextMeshPro
     -text : TextMeshPro
     -portrait : Image
+    -backgroundView : Image
+    -textBackground : Image
     +Event action<string> ChoiceMade
     +void StartDialogue(Dialogue dialogueToSet)
     +void StopDialogue()

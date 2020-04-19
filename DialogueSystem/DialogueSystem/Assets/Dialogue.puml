@@ -69,11 +69,11 @@ Class Reaction<<S, red>>{
     Angry
 }
 
-Dialogue "1" -- "n" DialoguePiece
+Dialogue *-- DialoguePiece
 DialoguePiece - Actor
 Dialogue - Mode
-DialogueManager --* DialogueEncounter
-DialogueEncounter --* Dialogue
+DialogueManager o-- DialogueEncounter
+DialogueEncounter o-- Dialogue
 Dialogue -- Choice
 DialoguePiece -- Reaction
 Actor -- Reaction

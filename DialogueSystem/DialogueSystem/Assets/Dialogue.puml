@@ -6,12 +6,14 @@ hide empty members
 class DialogueManager<<M, yellow>>{
     +ui : canvas 
     +isRunning : bool
+    +event action DialogueStart
+    +event action DialogueEnd
+    +Event action<string> ChoiceMade
     -name : TextMeshPro
     -text : TextMeshPro
     -portrait : Image
     -backgroundView : Image
     -textBackground : Image
-    +Event action<string> ChoiceMade
     +void StartDialogue(Dialogue dialogueToSet)
     +void StopDialogue()
     -void ShowButton()
@@ -23,13 +25,6 @@ class DialogueManager<<M, yellow>>{
     -void PlayBackgroundSound()
 }
 
-Abstract DialogueEncounter{
-    +dialogues : list<Dialogue>
-    #void SendDialogue()
-    -Event action<> SomethingHappens
-    -void StartEvent()
-}
-
 class Dialogue<<S, red>>{
     +pieces : DialoguePiece[]
     +choices : list<Choice>
@@ -38,7 +33,7 @@ class Dialogue<<S, red>>{
 
 class Actor<<S, red>>{
     +name : string
-    +reaction : dictionary<Reaction,Sprite>
+    +reaction : List<Reaction>
 }
 
 class DialoguePiece<<S, red>>{
@@ -69,11 +64,10 @@ Class Reaction<<S, red>>{
     Angry
 }
 
+DialogueManager *-- Dialogue
 Dialogue *-- DialoguePiece
 DialoguePiece - Actor
 Dialogue - Mode
-DialogueManager o-- DialogueEncounter
-DialogueEncounter o-- Dialogue
 Dialogue -- Choice
 DialoguePiece -- Reaction
 Actor -- Reaction

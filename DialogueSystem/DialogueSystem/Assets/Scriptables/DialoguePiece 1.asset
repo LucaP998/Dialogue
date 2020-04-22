@@ -17,7 +17,7 @@ MonoBehaviour:
   spriteReaction: {fileID: 650397754724243475, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
     type: 3}
   dialogueText: "perch\xE9 sono felice?"
-  letterSound: {fileID: 8300000, guid: 247d9e65e70912c44a50c49953547b2d, type: 3}
-  sound: {fileID: 0}
+  letterSound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 247d9e65e70912c44a50c49953547b2d, type: 3}
   backgroundSound: {fileID: 0}
   speed: 0.1

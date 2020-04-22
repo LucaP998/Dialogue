@@ -10,11 +10,6 @@ public class Dialogue : ScriptableObject
 	[TableList]
 	public List<DialoguePiece> dialoguePieces;
 
-	public enum Mode
-	{
-		Instant,
-		TypeOut
-	}
 
 	public Mode mode=Mode.Instant;
 	

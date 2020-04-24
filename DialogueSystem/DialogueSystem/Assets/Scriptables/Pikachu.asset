@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pikachu
   m_EditorClassIdentifier: 
   actorName: Pikachu
+  voicePitchRangeHigh: 2
+  voicePitchRangeLow: 1.5
   reactions:
   - reaction: 0
     sprite: {fileID: 3360394008511720735, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,

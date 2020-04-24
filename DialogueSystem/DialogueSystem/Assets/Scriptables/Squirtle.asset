@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Squirtle
   m_EditorClassIdentifier: 
   actorName: Squirtle
+  voicePitchRangeHigh: 1.4
+  voicePitchRangeLow: 1
   reactions:
   - reaction: 0
     sprite: {fileID: -573981516967879801, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,

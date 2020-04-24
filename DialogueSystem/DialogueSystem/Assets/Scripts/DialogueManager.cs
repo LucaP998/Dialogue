@@ -3,11 +3,12 @@ using System.Collections;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
-	public bool isRunning;
 	private event Action<string> ChoiceMade;
 	[SerializeField] private Image portrait;
 	[SerializeField] private Image backgroundView;
@@ -19,10 +20,19 @@ public class DialogueManager : Singleton<DialogueManager>
 	[SerializeField] private AudioSource genericSound;
 	private int currentPiece;
 	private Coroutine dialogueRoutine;
-	public Dialogue currentDialogue;
-	
+	private Dialogue currentDialogue;
+	public KeyCode confirmButton;
+	public KeyCode skipButton;
 
-	
+	protected override void Awake()
+	{
+		base.Awake();
+		if (confirmButton == KeyCode.None || skipButton == KeyCode.None)
+		{
+			throw new Exception("ERROR: one or more keys were not assigned.\nFrom the inspector assign keys to confirmButton and skipButton");
+		}
+	}
+
 	[Button]
 	public void StartDialogue(Dialogue dialogueToShow)
 	{
@@ -67,7 +77,12 @@ public class DialogueManager : Singleton<DialogueManager>
 	
 	private void PlayLetterSound(DialoguePiece piece)
 	{
+		if (letterSource.isPlaying)
+		{
+			letterSource.Stop();
+		}
 		letterSource.clip = piece.letterSound;
+		letterSource.pitch = UnityEngine.Random.Range(piece.actor.voicePitchRangeLow, piece.actor.voicePitchRangeHigh);
 		letterSource.Play();
 	}
 
@@ -90,7 +105,7 @@ public class DialogueManager : Singleton<DialogueManager>
 			PlayLetterSound(piece);
 			for (int i = 0; i < piece.speed * 60; i++)
 			{
-				if (Input.anyKeyDown)
+				if (Input.GetKeyDown(skipButton))
 				{
 					dialogueText.text = piece.dialogueText;
 					isSkip = true;
@@ -114,7 +129,7 @@ public class DialogueManager : Singleton<DialogueManager>
 		bool pressed = false;
 		while (!pressed)
 		{
-			if (Input.anyKeyDown)
+			if (Input.GetKeyDown(confirmButton))
 			{
 				pressed = true;
 				yield return null;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6248ce47412d0a649ab1816f1b9e6a62, type: 3}
   m_Name: Dialogue
   m_EditorClassIdentifier: 
+  savePath: Asset/Scriptables/
   dialoguePieces:
   - {fileID: 11400000, guid: ba72d638be0df244dacfef1f560d9437, type: 2}
   - {fileID: 11400000, guid: 6bf09056308606347a1a87f060abf46e, type: 2}
@@ -21,8 +22,6 @@ MonoBehaviour:
     dialogue: {fileID: 11400000}
   - choiceName: No
     dialogue: {fileID: 11400000}
-  - choiceName: Banana
-    dialogue: {fileID: 0}
-  - choiceName: asdasd
+  - choiceName: Cancel
     dialogue: {fileID: 0}
   mode: 1

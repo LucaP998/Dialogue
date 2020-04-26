@@ -16,4 +16,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ba72d638be0df244dacfef1f560d9437, type: 2}
   - {fileID: 11400000, guid: 6bf09056308606347a1a87f060abf46e, type: 2}
   - {fileID: 11400000, guid: d7b9218228594f840b751f78669885e6, type: 2}
+  choice:
+  - choiceName: Yes
+    dialogue: {fileID: 11400000}
+  - choiceName: No
+    dialogue: {fileID: 11400000}
+  - choiceName: Banana
+    dialogue: {fileID: 0}
+  - choiceName: asdasd
+    dialogue: {fileID: 0}
   mode: 1

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,9 +16,10 @@ public class Actor : ScriptableObject
 	public struct ReactionStruct
 	{
 		public Reaction reaction;
+		[PreviewField(ObjectFieldAlignment.Center)]
 		public Sprite sprite;
 	}
-
+	
 	public List<ReactionStruct> reactions = new List<ReactionStruct>();
 
 	public Sprite GetSprite(Reaction reaction)

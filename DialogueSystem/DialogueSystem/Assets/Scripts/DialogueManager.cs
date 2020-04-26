@@ -9,7 +9,8 @@ using Random = System.Random;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
-	private event Action<string> ChoiceMade;
+	public event Action<string> ChoiceMade; 
+	[SerializeField] private Button[] buttons;
 	[SerializeField] private Image portrait;
 	[SerializeField] private Image backgroundView;
 	[SerializeField] private Image textBackground;
@@ -36,6 +37,7 @@ public class DialogueManager : Singleton<DialogueManager>
 	[Button]
 	public void StartDialogue(Dialogue dialogueToShow)
 	{
+		currentPiece = 0;
 		currentDialogue = dialogueToShow;
 		if (dialogueRoutine != null)
 		{
@@ -54,12 +56,37 @@ public class DialogueManager : Singleton<DialogueManager>
 		canvas.enabled = false;
 	}
 
-	private void ShowButton()
-	{ }
-
-	private void PressButton()
+	private void ShowChoices()
 	{
-		//Debug.Log(EventSystem.current.currentSelectedGameObject.transform.GetComponentInChildren<TextMeshProUGUI>().text);
+		for (int i = 0; i < currentDialogue.choice.Length; i++)
+		{
+			buttons[i].gameObject.SetActive(true);
+			buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentDialogue.choice[i].choiceName;
+		}
+	}
+
+	public void PressButton()
+	{
+		string message = EventSystem.current.currentSelectedGameObject.transform.GetComponentInChildren<TextMeshProUGUI>().text;
+		ChoiceMade?.Invoke(message);
+		CloseButtons();
+		foreach (Choice choice in currentDialogue.choice)
+		{
+			if (choice.choiceName == message && choice.dialogue != null)
+			{
+				StartDialogue(choice.dialogue);
+				return;
+			}
+		}
+		StopDialogue();
+	}
+
+	private void CloseButtons()
+	{
+		foreach (Button button in buttons)
+		{
+			button.gameObject.SetActive(false);
+		}
 	}
 
 	private void NextDialoguePiece()
@@ -71,7 +98,14 @@ public class DialogueManager : Singleton<DialogueManager>
 		}
 		else
 		{
-			StopDialogue();
+			if (currentDialogue.choice != null)
+			{
+				ShowChoices();
+			}
+			else
+			{
+				StopDialogue();
+			}
 		}
 	}
 	
@@ -102,10 +136,9 @@ public class DialogueManager : Singleton<DialogueManager>
 		foreach (char c in piece.dialogueText)
 		{
 			dialogueText.text += c;
-			PlayLetterSound(piece);
 			for (int i = 0; i < piece.speed * 60; i++)
 			{
-				if (Input.GetKeyDown(skipButton))
+				if (Input.GetKeyDown(skipButton) || mode == Mode.Instant)
 				{
 					dialogueText.text = piece.dialogueText;
 					isSkip = true;
@@ -117,6 +150,7 @@ public class DialogueManager : Singleton<DialogueManager>
 			{
 				break;
 			}
+			PlayLetterSound(piece);
 			yield return null;
 		}
 		yield return null;

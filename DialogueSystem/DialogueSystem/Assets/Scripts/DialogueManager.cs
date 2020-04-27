@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = System.Random;
 
@@ -16,7 +17,7 @@ public class DialogueManager : Singleton<DialogueManager>
 	[SerializeField] private Image textBackground;
 	[SerializeField] private TextMeshProUGUI actorName;
 	[SerializeField] private TextMeshProUGUI dialogueText;
-	[SerializeField] private Canvas canvas;
+	[SerializeField] private GameObject dialogueObject;
 	[SerializeField] private AudioSource letterSource;
 	[SerializeField] private AudioSource genericSound;
 	private int currentPiece;
@@ -43,7 +44,7 @@ public class DialogueManager : Singleton<DialogueManager>
 		{
 			StopDialogue();
 		}
-		canvas.enabled = true;
+		dialogueObject.SetActive(true);
 		dialogueRoutine = StartCoroutine(RunningDialoguePiece(currentDialogue.dialoguePieces[currentPiece], dialogueToShow.mode));
 	}
 
@@ -53,7 +54,7 @@ public class DialogueManager : Singleton<DialogueManager>
 		{
 			StopCoroutine(dialogueRoutine);
 		}
-		canvas.enabled = false;
+		dialogueObject.SetActive(false);
 	}
 
 	private void ShowChoices()
@@ -63,6 +64,7 @@ public class DialogueManager : Singleton<DialogueManager>
 			buttons[i].gameObject.SetActive(true);
 			buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentDialogue.choice[i].choiceName;
 		}
+		buttons[0].Select();
 	}
 
 	public void PressButton()
@@ -83,6 +85,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
 	private void CloseButtons()
 	{
+		EventSystem.current.SetSelectedGameObject(null);
 		foreach (Button button in buttons)
 		{
 			button.gameObject.SetActive(false);
@@ -136,22 +139,25 @@ public class DialogueManager : Singleton<DialogueManager>
 		foreach (char c in piece.dialogueText)
 		{
 			dialogueText.text += c;
-			for (int i = 0; i < piece.speed * 60; i++)
+			if (c != ' ')
 			{
-				if (Input.GetKeyDown(skipButton) || mode == Mode.Instant)
+				for (int i = 0; i < piece.speed * 60; i++)
 				{
-					dialogueText.text = piece.dialogueText;
-					isSkip = true;
+					if (Input.GetKeyDown(skipButton) || mode == Mode.Instant)
+					{
+						dialogueText.text = piece.dialogueText;
+						isSkip = true;
+						break;
+					}
+					yield return null;
+				}
+				if (isSkip)
+				{
 					break;
 				}
+				PlayLetterSound(piece);
 				yield return null;
 			}
-			if (isSkip)
-			{
-				break;
-			}
-			PlayLetterSound(piece);
-			yield return null;
 		}
 		yield return null;
 		yield return StartCoroutine(WaitForInput());
@@ -163,7 +169,7 @@ public class DialogueManager : Singleton<DialogueManager>
 		bool pressed = false;
 		while (!pressed)
 		{
-			if (Input.GetKeyDown(confirmButton))
+			if (Input.GetKeyDown(confirmButton) || Input.GetKeyDown(skipButton))
 			{
 				pressed = true;
 				yield return null;

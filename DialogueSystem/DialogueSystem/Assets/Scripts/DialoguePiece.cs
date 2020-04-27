@@ -3,9 +3,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "DialoguePiece", menuName = "Scriptables/DialoguePiece")]
 [Serializable]
-public class DialoguePiece : ScriptableObject
+public class DialoguePiece
 {
     [OnValueChanged("RefreshSprite")]
     public Actor actor;
@@ -21,7 +20,7 @@ public class DialoguePiece : ScriptableObject
     public AudioClip sound;
     [VerticalGroup("Sound")][LabelText("BGM")]
     public AudioClip backgroundSound;
-    [FormerlySerializedAs("dialogueSpeed")] public float speed = 1;
+    [FormerlySerializedAs("dialogueSpeed")] public float speed = 0.1f;
 
     public void RefreshSprite() {
         spriteReaction = actor.GetSprite(reaction);

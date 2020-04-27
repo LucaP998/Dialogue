@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 544488dd80ecb9247b52ea65be254c98, type: 3}
-  m_Name: Pikachu
+  m_Name: Squirtle
   m_EditorClassIdentifier: 
-  actorName: Pikachu
-  voicePitchRangeHigh: 2
-  voicePitchRangeLow: 1.5
+  actorName: Squirtle
+  voicePitchRangeHigh: 1.4
+  voicePitchRangeLow: 1
+  index: 0
   reactions:
   - reaction: 0
-    sprite: {fileID: 3360394008511720735, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+    sprite: {fileID: -573981516967879801, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
   - reaction: 1
-    sprite: {fileID: 650397754724243475, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3, type: 3}
+    sprite: {fileID: 5153769368508253282, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+      type: 3}
   - reaction: 2
-    sprite: {fileID: -5277936344961346494, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+    sprite: {fileID: 6958952583718802096, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
   - reaction: 3
-    sprite: {fileID: 4707650434157474835, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+    sprite: {fileID: 5788731815043175540, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}

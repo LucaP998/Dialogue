@@ -1,7 +1,10 @@
-public enum Reaction
+namespace DialogueSystem
 {
-	Neutral,
-	Happy,
-	Sad,
-	Angry
+	public enum Reaction
+	{
+		Neutral,
+		Happy,
+		Sad,
+		Angry
+	}
 }

@@ -1,5 +1,8 @@
-public enum Mode
+namespace DialogueSystem
 {
-	Instant,
-	TypeOut
+	public enum Mode
+	{
+		Instant,
+		TypeOut
+	}
 }

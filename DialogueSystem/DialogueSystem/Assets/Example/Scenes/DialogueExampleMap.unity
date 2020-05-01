@@ -795,6 +795,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -179.83235
       objectReference: {fileID: 0}
+    - target: {fileID: 2802419975828162211, guid: 50f5c82237b28f44e97e8bf421b149a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2802419975946836433, guid: 50f5c82237b28f44e97e8bf421b149a4,
         type: 3}
       propertyPath: buttons.Array.size
@@ -943,6 +948,11 @@ PrefabInstance:
     - target: {fileID: 2802419975946836446, guid: 50f5c82237b28f44e97e8bf421b149a4,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802419976500144782, guid: 50f5c82237b28f44e97e8bf421b149a4,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3459155979985259620, guid: 50f5c82237b28f44e97e8bf421b149a4,

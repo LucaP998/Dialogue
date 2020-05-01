@@ -11,7 +11,6 @@ namespace DialogueSystem
 	[CreateAssetMenu(fileName = "Dialogue", menuName = "Scriptables/Dialogue")]
 	public class Dialogue : ScriptableObject
 	{
-		[Required] [SerializeField] private string savePath;
 		[TableList] public List<DialoguePiece> dialoguePieces;
 		public Choice[] choice;
 		public Mode mode = Mode.TypeOut;

@@ -10,6 +10,7 @@ using Random = System.Random;
 
 namespace DialogueSystem
 {
+
 	public class DialogueManager : Singleton<DialogueManager>
 	{
 		public event Action<string> ChoiceMade;
@@ -20,8 +21,8 @@ namespace DialogueSystem
 		[SerializeField] private TextMeshProUGUI actorName;
 		[SerializeField] private TextMeshProUGUI dialogueText;
 		[SerializeField] private GameObject dialogueObject;
-		[SerializeField] private AudioSource letterSource;
-		[SerializeField] private AudioSource genericSound;
+		[SerializeField] private AudioSource letterSoundSource;
+		[SerializeField] private AudioSource genericSoundSource;
 		private int currentPiece;
 		private Coroutine dialogueRoutine;
 		private Dialogue currentDialogue;
@@ -37,7 +38,6 @@ namespace DialogueSystem
 			}
 		}
 
-		[Button]
 		public void StartDialogue(Dialogue dialogueToShow)
 		{
 			currentPiece = 0;
@@ -103,7 +103,7 @@ namespace DialogueSystem
 			}
 			else
 			{
-				if (currentDialogue.choice != null)
+				if (currentDialogue.choice.Length > 0)
 				{
 					ShowChoices();
 				}
@@ -116,19 +116,19 @@ namespace DialogueSystem
 
 		private void PlayLetterSound(DialoguePiece piece)
 		{
-			if (letterSource.isPlaying)
+			if (letterSoundSource.isPlaying)
 			{
-				letterSource.Stop();
+				letterSoundSource.Stop();
 			}
-			letterSource.clip = piece.letterSound;
-			letterSource.pitch = UnityEngine.Random.Range(piece.actor.voicePitchRangeLow, piece.actor.voicePitchRangeHigh);
-			letterSource.Play();
+			letterSoundSource.clip = piece.letterSound;
+			letterSoundSource.pitch = UnityEngine.Random.Range(piece.actor.voicePitchRangeLow, piece.actor.voicePitchRangeHigh);
+			letterSoundSource.Play();
 		}
 
 		private void PlaySound(DialoguePiece piece)
 		{
-			genericSound.clip = piece.sound;
-			genericSound.Play();
+			genericSoundSource.clip = piece.sound;
+			genericSoundSource.Play();
 		}
 
 		IEnumerator RunningDialoguePiece(DialoguePiece piece, Mode mode)
@@ -180,4 +180,5 @@ namespace DialogueSystem
 			}
 		}
 	}
+
 }

@@ -12,34 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6248ce47412d0a649ab1816f1b9e6a62, type: 3}
   m_Name: Dialogue
   m_EditorClassIdentifier: 
-  savePath: Asset/Scriptables/
   dialoguePieces:
   - actor: {fileID: 11400000, guid: 5016b2bdaf5ebb144a1c01bae72eccce, type: 2}
     reaction: 0
     spriteReaction: {fileID: -573981516967879801, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
-    dialogueText: Ciao, sono uno squirtle
+    dialogueText: Hello, I'm a squirtle.
     letterSound: {fileID: 8300000, guid: 247d9e65e70912c44a50c49953547b2d, type: 3}
     sound: {fileID: 0}
-    backgroundSound: {fileID: 0}
     speed: 0.1
   - actor: {fileID: 11400000, guid: 09c90dc121d3e18448e5c0cd83fefafb, type: 2}
     reaction: 1
     spriteReaction: {fileID: 650397754724243475, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
-    dialogueText: Ciao squirtle!
+    dialogueText: Hello squirtle!
     letterSound: {fileID: 0}
     sound: {fileID: 0}
-    backgroundSound: {fileID: 0}
     speed: 0.1
   - actor: {fileID: 11400000, guid: 5016b2bdaf5ebb144a1c01bae72eccce, type: 2}
     reaction: 2
     spriteReaction: {fileID: 6958952583718802096, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
-    dialogueText: Sono molto triste?
+    dialogueText: This dialogue doesn't make any sense.
     letterSound: {fileID: 0}
     sound: {fileID: 0}
-    backgroundSound: {fileID: 0}
     speed: 0.1
   choice:
   - choiceName: Yes

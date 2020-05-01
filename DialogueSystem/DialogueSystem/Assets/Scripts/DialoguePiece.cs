@@ -17,8 +17,8 @@ namespace DialogueSystem
         [VerticalGroup("Sound")] [TableColumnWidth(50)] [LabelText("Letter")]
         public AudioClip letterSound;
         [VerticalGroup("Sound")] public AudioClip sound;
-        [VerticalGroup("Sound")] [LabelText("BGM")]
-        public AudioClip backgroundSound;
+        // [VerticalGroup("Sound")] [LabelText("BGM")]
+        // public AudioClip backgroundSound;
         [FormerlySerializedAs("dialogueSpeed")]
         public float speed = 0.1f;
 

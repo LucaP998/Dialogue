@@ -14,6 +14,7 @@ namespace DialogueSystem
 	public class DialogueManager : Singleton<DialogueManager>
 	{
 		public event Action<string> ChoiceMade;
+		public event Action DialogueEnd;
 		[SerializeField] private Button[] buttons;
 		[SerializeField] private Image portrait;
 		[SerializeField] private Image backgroundView;
@@ -82,6 +83,9 @@ namespace DialogueSystem
 					return;
 				}
 			}
+
+			EndOfDialogueEvent();
+			
 			StopDialogue();
 		}
 
@@ -94,6 +98,13 @@ namespace DialogueSystem
 			}
 		}
 
+		private void EndOfDialogueEvent()
+		{
+			DialogueEnd?.Invoke();
+			DialogueEnd = null;
+			ChoiceMade = null;
+		}
+		
 		private void NextDialoguePiece()
 		{
 			currentPiece++;
@@ -109,6 +120,7 @@ namespace DialogueSystem
 				}
 				else
 				{
+					EndOfDialogueEvent();
 					StopDialogue();
 				}
 			}

@@ -13,18 +13,24 @@ namespace DialogueSystem
 		public void DialogueTest()
 		{
 			DialogueManager.instance.StartDialogue(dialogue);
+			DialogueManager.instance.DialogueEnd += Test;
 			DialogueManager.instance.ChoiceMade += Listener;
 		}
 
+		private void Test()
+		{
+			Debug.Log("dialogue is over");
+		}
+		
 		private void Listener(string message)
 		{
 			if (message == "Yes")
 			{
-				Debug.Log("sono incredibilmente triste");
+				Debug.Log("yes");
 			}
 			else if (message == "No")
 			{
-				Debug.Log("sono moderatamente triste");
+				Debug.Log("no");
 			}
 		}
 	}

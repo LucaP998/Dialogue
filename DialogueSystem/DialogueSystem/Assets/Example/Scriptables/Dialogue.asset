@@ -30,10 +30,10 @@ MonoBehaviour:
     sound: {fileID: 0}
     speed: 0.1
   - actor: {fileID: 11400000, guid: 5016b2bdaf5ebb144a1c01bae72eccce, type: 2}
-    reaction: 2
-    spriteReaction: {fileID: 6958952583718802096, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
+    reaction: 0
+    spriteReaction: {fileID: -573981516967879801, guid: 11fd7e192ac4f1b4f8b3d24b4121f7b3,
       type: 3}
-    dialogueText: This dialogue doesn't make any sense.
+    dialogueText: Do you like pizza?
     letterSound: {fileID: 0}
     sound: {fileID: 0}
     speed: 0.1

@@ -1943,8 +1943,8 @@ MonoBehaviour:
   actorName: {fileID: 1932826012927430576}
   dialogueText: {fileID: 1932826012307541990}
   dialogueObject: {fileID: 3834478896090439086}
-  letterSource: {fileID: 9041539670669519965}
-  genericSound: {fileID: 9131781976875553485}
+  letterSoundSource: {fileID: 9041539670669519965}
+  genericSoundSource: {fileID: 9131781976875553485}
   confirmButton: 97
   skipButton: 98
 --- !u!82 &9041539670669519965

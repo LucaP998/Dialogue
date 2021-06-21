@@ -404,6 +404,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2802419974748820265}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1537781265 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4795328964858965048, guid: 50f5c82237b28f44e97e8bf421b149a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2802419974748820265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1537781266 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4705405602928513704, guid: 50f5c82237b28f44e97e8bf421b149a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2802419974748820265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1537781267 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1154094697776423108, guid: 50f5c82237b28f44e97e8bf421b149a4,
@@ -565,6 +577,16 @@ PrefabInstance:
       propertyPath: buttons.Array.data[3]
       value: 
       objectReference: {fileID: 2802419974748820266}
+    - target: {fileID: 1154094697776423108, guid: 50f5c82237b28f44e97e8bf421b149a4,
+        type: 3}
+      propertyPath: letterSoundSource
+      value: 
+      objectReference: {fileID: 1537781266}
+    - target: {fileID: 1154094697776423108, guid: 50f5c82237b28f44e97e8bf421b149a4,
+        type: 3}
+      propertyPath: genericSoundSource
+      value: 
+      objectReference: {fileID: 1537781265}
     - target: {fileID: 1604261202855853991, guid: 50f5c82237b28f44e97e8bf421b149a4,
         type: 3}
       propertyPath: m_AnchorMin.y

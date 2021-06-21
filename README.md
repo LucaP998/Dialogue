@@ -1,4 +1,5 @@
 # Dialogue
+![image](https://user-images.githubusercontent.com/47710466/122785524-be61ee00-d2b3-11eb-9914-25a66798b4bd.png)
 
 Short introduction:
 This tool is used to create dialogues to use in game, with the possibility of having multiple characters with different facial expressions/emotions.
@@ -10,20 +11,18 @@ This tool is used to create dialogues to use in game, with the possibility of ha
 
 Features:
 
-
--Customizable UI
--Multiple dialogue choices
--Various character's expressions
--Adjustable typing speed
+-Customizable UI  
+-Multiple dialogue choices  
+-Various character's expressions  
+-Adjustable typing speed  
 
 
 Installation:
 
-
--Download package
--Import package
--Place the "Dialogue" prefab in the canvas and enjoy
--For a quick tutorial on how to use this tool, see the wiki here: https://github.com/LucaP998/Dialogue/wiki
+-Download package  
+-Import package  
+-Place the "Dialogue" prefab in the canvas and enjoy  
+-For a quick tutorial on how to use this tool, see the wiki here: https://github.com/LucaP998/Dialogue/wiki  
 
 
 

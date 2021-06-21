@@ -45,3 +45,4 @@ MonoBehaviour:
   - choiceName: Cancel
     dialogue: {fileID: 0}
   mode: 1
+  timeForTypeOut: 120

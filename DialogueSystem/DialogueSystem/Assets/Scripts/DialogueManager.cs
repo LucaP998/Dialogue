@@ -155,7 +155,7 @@ namespace DialogueSystem
 				dialogueText.text += c;
 				if (c != ' ')
 				{
-					for (int i = 0; i < piece.speed * 60; i++)
+					for (int i = 0; i < piece.speed * currentDialogue.timeForTypeOut; i++)
 					{
 						if (Input.GetKeyDown(skipButton) || mode == Mode.Instant)
 						{

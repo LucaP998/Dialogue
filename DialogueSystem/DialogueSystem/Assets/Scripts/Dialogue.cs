@@ -14,5 +14,6 @@ namespace DialogueSystem
 		[TableList] public List<DialoguePiece> dialoguePieces;
 		public Choice[] choice;
 		public Mode mode = Mode.TypeOut;
+		public float timeForTypeOut;
 	}
 }
